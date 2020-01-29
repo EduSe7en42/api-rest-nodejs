@@ -25,7 +25,7 @@ module.exports = {
                 res.json(user)
             })
     },
-    get: (req, res) => {
+    getAll: (req, res) => {
         User.find()
             .then(resultado => {
                 if (!resultado) res.json({ sucesso: false, resultado: "Não há dados a serem mostrados" })
