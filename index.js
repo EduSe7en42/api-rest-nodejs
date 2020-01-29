@@ -18,7 +18,7 @@ const userController = require("./controller/UserController");
 // Routes
 app.post("/user/criar", userController.create);
 app.post("/user/atualizar", userController.update);
-app.get("/user/recuperar", userController.get);
+app.get("/user/recuperar", userController.getAll);
 app.get("/user/recuperar/:id", userController.getById);
 app.delete("/user/remover/", userController.removeAll);
 app.delete("/user/remover/:id", userController.removeById);
