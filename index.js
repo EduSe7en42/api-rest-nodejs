@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Database
-mongoose.connect("mongodb://127.0.0.1:27017/minhaApiNode", { useNewUrlParser: true })
+mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
     .then(() => console.log("Conectado com sucesso!"))
     .catch((err) => console.error(err));
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Controller
-const userController = require("./controller/UserController");
+const userController = require("./controller/UserController"); 
 
 // Routes
 app.post("/user/criar", userController.create);

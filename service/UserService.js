@@ -1,25 +1,22 @@
 const User = require("../model/User");
-const userService = require("../service/UserService");
 
 module.exports = {
     create: (req, res) => {
-        // let user = new User({
-        //     nome: req.body.nome,
-        //     sobrenome: req.body.sobrenome,
-        //     email: req.body.email,
-        //     senha: req.body.senha,
-        //     idade: req.body.idade
-        // })
+        let user = new User({
+            nome: req.body.nome,
+            sobrenome: req.body.sobrenome,
+            email: req.body.email,
+            senha: req.body.senha,
+            idade: req.body.idade
+        })
 
-        // user.save()
-        //     .then(resultado => { 
-        //         res.json({ sucesso: true, resultado: resultado })
-        //      })
-        //     .catch(err => {
-        //         res.json({ sucesso: false, resultado: err })
-        //     })
-        
-        userService.create(req, res);
+        user.save()
+            .then(resultado => { 
+                res.json({ sucesso: true, resultado: resultado })
+             })
+            .catch(err => {
+                res.json({ sucesso: false, resultado: err })
+            })
     },
     update: (req, res) => {
         User.update({ _id: req.body._id }, req.body)
