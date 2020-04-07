@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Database
-mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
-    .then(() => console.log("Conectado com sucesso!"))
-    .catch((err) => console.error(err));
+// mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
+//     .then(() => console.log("Conectado com sucesso!"))
+//     .catch((err) => console.error(err));
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
