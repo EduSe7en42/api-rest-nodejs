@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// Database
-mongoose.connect("mongodb://127.0.0.1:27017/minhaApiNode", { useNewUrlParser: true })
+// Database 
+mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
     .then(() => console.log("Conectado com sucesso!"))
     .catch((err) => console.error(err));
 
@@ -12,10 +12,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/minhaApiNode", { useNewUrlParser: tr
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Controller
-const userController = require("./controller/UserController");
+// User Controller
+const userController = require("./controller/UserController"); 
 
-// Routes
+// User Routes
 app.post("/user/criar", userController.create);
 app.post("/user/atualizar", userController.update);
 app.get("/user/recuperar", userController.getAll);
