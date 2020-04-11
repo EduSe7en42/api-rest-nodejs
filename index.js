@@ -12,10 +12,10 @@ mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Controller
+// User Controller
 const userController = require("./controller/UserController"); 
 
-// Routes
+// User Routes
 app.post("/user/criar", userController.create);
 app.post("/user/atualizar", userController.update);
 app.get("/user/recuperar", userController.getAll);
