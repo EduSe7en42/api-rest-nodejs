@@ -1,7 +1,7 @@
 {
-  "name": "minha-api-node",
+  "name": "api-rest-nodejs",
   "version": "1.0.0",
-  "description": "Uma api simples feita com node.js",
+  "description": "A simple API in JS",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
