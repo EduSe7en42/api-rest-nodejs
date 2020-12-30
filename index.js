@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const rotas = require("./routes");
 
 const app = express();
 
@@ -16,12 +17,7 @@ app.use(express.json());
 const userController = require("./controller/UserController"); 
 
 // User Routes
-app.post("/user/criar", userController.create);
-app.post("/user/atualizar", userController.update);
-app.get("/user/recuperar", userController.getAll);
-app.get("/user/recuperar/:id", userController.getById);
-app.delete("/user/remover/", userController.removeAll);
-app.delete("/user/remover/:id", userController.removeById);
+app.use(rotas);
 
 //Start server
 let porta = 8080;
