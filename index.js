@@ -5,7 +5,7 @@ const rotas = require("./routes");
 const app = express();
 
 // Database 
-mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
+mongoose.connect("mongodb://127.0.0.1/api-node-db", { useNewUrlParser: true })
     .then(() => console.log("Conectado com sucesso!"))
     .catch((err) => console.error(err));
 
