@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const rotas = require("./routes");
 
 const app = express();
 
 // Database 
-mongoose.connect("mongodb://127.0.0.1/minhaApiNode", { useNewUrlParser: true })
+mongoose.connect("mongodb://127.0.0.1/api-node-db", { useNewUrlParser: true })
     .then(() => console.log("Conectado com sucesso!"))
     .catch((err) => console.error(err));
 
@@ -16,12 +17,7 @@ app.use(express.json());
 const userController = require("./controller/UserController"); 
 
 // User Routes
-app.post("/user/criar", userController.create);
-app.post("/user/atualizar", userController.update);
-app.get("/user/recuperar", userController.getAll);
-app.get("/user/recuperar/:id", userController.getById);
-app.delete("/user/remover/", userController.removeAll);
-app.delete("/user/remover/:id", userController.removeById);
+app.use(rotas);
 
 //Start server
 let porta = 8080;
