@@ -17,8 +17,7 @@ module.exports = class UserService {
             descricao: this.req.body.descricao,
             senha: this.req.body.senha,
             dataAniversario: this.req.body.dataAniversario,
-            seguindo: [{}],
-            seguidores: [{}],
+            seguindo: [],
             idade: this.req.body.idade
         };
 
@@ -30,15 +29,17 @@ module.exports = class UserService {
     }
 
     update() {
-        var id = this.req.body._id;
+        var id = this.req.params.id;
+        var new_body = this.req.body;
 
-        User.update({ id }, this.req.body)
-            .this(resultado => {
+        User.findByIdAndUpdate(id, new_body)
+            .then(resultado => {
                 if (!resultado) 
-                    this.res.json({ sucesso: false, resultado: "O usuário não pode ser encontrado" });     
+                    this.res.json({ sucesso: false, resultado: "Não há dados a serem mostrados" });
                 
-                this.res.json(resultado);
-            });
+                this.res.json({ sucesso: true, resultado: resultado });
+            })
+            .catch(err => { this.res.json({ sucesso: false, resultado: err }); });        
     }
 
     getAll() {
@@ -53,9 +54,9 @@ module.exports = class UserService {
     }
 
     getById() {
-        var id = this.req.params._id;
+        var id = this.req.params.id;
 
-        User.findById({ id })
+        User.findById({ _id: id })
             .then(resultado => { 
                 if (!resultado) 
                     this.res.json({ sucesso: false, resultado: "Não há dados a serem deletados" });
