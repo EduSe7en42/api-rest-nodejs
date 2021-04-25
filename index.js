@@ -8,6 +8,7 @@ const app = express();
 mongoose.connect("mongodb://127.0.0.1/api-node-db", { useNewUrlParser: true })
     .then(() => console.log("Conectado com sucesso!"))
     .catch((err) => console.error(err));
+mongoose.set("useFindAndModify", false);
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));

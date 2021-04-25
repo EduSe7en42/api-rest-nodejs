@@ -12,8 +12,7 @@ const userSchema = new Schema({
     descricao: { type: String, required: true },
     senha: { type: String, required: true },
     dataAniversario: { type: Date, required: true },
-    seguindo: { type: [{}], required: true },
-    seguidores: { type: [{}], required: true },
+    seguindo: [],
     idade: Number
 });
 
