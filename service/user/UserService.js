@@ -8,17 +8,14 @@ module.exports = class UserService {
 
     create() {
         var userModel = {
-            nome: this.req.body.nome,
-            sobrenome: this.req.body.sobrenome,
-            apelido: this.req.body.apelido,
-            empresa: this.req.body.empresa,
-            cargo: this.req.body.cargo,
+            user: this.req.body.user,
             email: this.req.body.email,
             descricao: this.req.body.descricao,
             senha: this.req.body.senha,
             dataAniversario: this.req.body.dataAniversario,
             seguindo: [],
-            idade: this.req.body.idade
+            amigos: [],
+            ePrivado: false
         };
 
         var user = new User(userModel);
