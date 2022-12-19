@@ -12,10 +12,8 @@ module.exports = class UserService {
             email: this.req.body.email,
             descricao: this.req.body.descricao,
             senha: this.req.body.senha,
-            dataAniversario: this.req.body.dataAniversario,
-            seguindo: [],
-            amigos: [],
-            ePrivado: false
+            topicos: [],
+            amigos: []
         };
 
         var user = new User(userModel);
