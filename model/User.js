@@ -7,9 +7,7 @@ const userSchema = new Schema({
     criacao: { type: Date, default: Date.now },
     descricao: { type: String, required: true },
     senha: { type: String, required: true },
-    dataAniversario: { type: Date, required: true },
-    topicos: [],
-    ePrivado: Boolean
+    topicos: []
 });
 
 module.exports = mongoose.model("usuario", userSchema);
